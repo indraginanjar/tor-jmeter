@@ -1,0 +1,11 @@
+*.jtl
+*.log
+.git
+.vscode/
+.~lock*
+builds/
+docs/
+jmeter_logs/
+report*/
+results/
+~lock*
