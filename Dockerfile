@@ -8,9 +8,17 @@ RUN /bin/sh -c set -eux;apt-get install -y --no-install-recommends tor torsocks 
 RUN touch /etc/tor/torr
 RUN echo "127.0.0.1 JMETER-MACHINE" >> /etc/hosts
 ENV log4j.hostName=localhost
-COPY . /home/jmeter/apache-jmeter-5.2
-RUN chmod +x /home/jmeter/apache-jmeter-5.2/container-init.sh
-RUN chown jmeter /home/jmeter/apache-jmeter-5.2/container-init.sh
+COPY . /
+RUN chmod +x /container-init.sh
+RUN chown jmeter:jmeter /container-init.sh
+RUN touch /var/log/polipo/polipo.log
+RUN chown jmeter:jmeter /var/log/polipo/polipo.log
+
+# Fix > WARNING: org.xerial's sqlite-jdbc is not loaded. Please provide the jar on your classpath to parse sqlite files.
+RUN mv /lib/tika-parser-sqlite3-package-2.1.0.jar /home/jmeter/apache-jmeter-5.2/lib
+
 USER jmeter
-COPY . /home/jmeter/apache-jmeter-5.2
-ENTRYPOINT ["/home/jmeter/apache-jmeter-5.2/container-init.sh"]
+
+# Fix for Error: Missing argument to option -q while executing container-init.sh as entrypoint
+ENTRYPOINT [""]
+CMD ["/container-init.sh"]
