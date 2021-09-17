@@ -57,5 +57,5 @@ docker run --rm --name torjmeter -v $(pwd):/home/jmeter/apache-jmeter-5.2/plan i
 ### Report Generating Example
 
 ```bash
-docker run --rm --name torjmeter -v $(pwd):/home/jmeter/apache-jmeter-5.2/plan -p 8123:8123 -p 9050:9050 indraginanjar/tor-jmeter:5.2 /container-init.sh -l result.csv -e -o plan/report -f -t plan/test-plan.jmx
+docker run --rm --name torjmeter -v $(pwd):/home/jmeter/apache-jmeter-5.2/plan indraginanjar/tor-jmeter:5.2 /container-init.sh -l result.csv -e -o plan/report -f -t plan/test-plan.jmx
 ```
