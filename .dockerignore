@@ -1,11 +1,14 @@
 *.jtl
 *.log
+.dockerignore
 .git
 .vscode/
 .~lock*
 builds/
+Dockerfile
 docs/
 jmeter_logs/
+README.md
 report*/
 results/
 ~lock*
