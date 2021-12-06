@@ -1,0 +1,10 @@
+*.jtl
+*.log
+.dockerignore
+.~lock*
+builds/
+docs/
+jmeter_logs/
+report*/
+results/
+~lock*

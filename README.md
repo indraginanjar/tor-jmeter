@@ -59,3 +59,15 @@ docker run --rm --name torjmeter -v $(pwd):/home/jmeter/apache-jmeter-5.2/plan i
 ```bash
 docker run --rm --name torjmeter -v $(pwd):/home/jmeter/apache-jmeter-5.2/plan indraginanjar/tor-jmeter:5.2 /container-init.sh -l result.csv -e -o plan/report -f -t plan/test-plan.jmx
 ```
+
+### Building Image from Dockerfile
+
+```bash
+./bin/docker_build.sh
+```
+
+### Exploring Container Internals
+
+```bash
+./bin/docker_run_bash.sh
+```
